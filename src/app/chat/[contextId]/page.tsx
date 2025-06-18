@@ -75,8 +75,7 @@ export default function ChatPage() {
       // Add AI response
       setMessages(prev => [...prev, { message: reply, isUser: false }]);
     } catch (err) {
-      // Commented for production
-      // console.error(err);
+      console.error("Failed to send chat message:", err); 
       setError('Failed to get a response. Please try again.');
     } finally {
       setIsLoading(false);
@@ -101,8 +100,7 @@ export default function ChatPage() {
       await endSession(contextId);
       router.push('/cook');
     } catch (err) {
-      // Commented for production
-      // console.error(err);
+      console.error("Failed to end session:", err);
       setError('Failed to end session. You can still navigate away safely.');
       setIsEndingSession(false);
       setShowEndSessionDialog(false);
@@ -207,4 +205,4 @@ export default function ChatPage() {
       />
     </div>
   );
-} 
+}
