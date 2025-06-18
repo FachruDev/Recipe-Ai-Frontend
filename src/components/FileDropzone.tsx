@@ -128,7 +128,10 @@ export function FileDropzone({
             Drag and drop your image here, or click to browse
           </p>
           <p className="text-sm text-gray-500 dark:text-gray-500 mt-1">
-            Supported formats: JPG, PNG, GIF • Max size: {maxSize / (1024 * 1024)}MB
+            Supported formats: JPG, PNG • Max size: {maxSize / (1024 * 1024)}MB
+          </p>
+          <p className="text-xs text-teal-600 dark:text-teal-500 mt-2">
+            For best results, use high-definition images (at least 1080p) with good lighting
           </p>
         </div>
       )}

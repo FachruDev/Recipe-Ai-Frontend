@@ -34,7 +34,7 @@ export default function CookPage() {
     setApiAvailable(isAvailable);
     
     if (!isAvailable) {
-      setError('API server is not available. Please make sure the backend server is running.');
+      setError('API server is not available. Please make sure the server is running.');
     } else {
       setError(''); 
     }
@@ -45,7 +45,7 @@ export default function CookPage() {
     e.preventDefault();
     
     if (!apiAvailable) {
-      setError('API server is not available. Please make sure the backend server is running.');
+      setError('API server is not available. Please make sure the server is running.');
       return;
     }
     
@@ -135,17 +135,35 @@ export default function CookPage() {
               <p className="text-gray-500 mb-2">or</p>
             </div>
             
-            <FileDropzone
-              onFileSelected={(file) => {
-                setImage(file);
-                setError(''); 
-              }}
-              onFileRemoved={() => setImage(null)}
-              selectedFile={image}
-              accept="image/jpeg,image/png,image/jpg"
-              maxSize={1 * 1024 * 1024} 
-              onError={setError}
-            />
+            <div className="space-y-3">
+              <div className="bg-teal-50 dark:bg-teal-900/20 border border-teal-200 dark:border-teal-800 rounded-md p-3 mb-3">
+                <div className="flex items-start">
+                  <div className="flex-shrink-0 mt-0.5">
+                    <svg className="h-5 w-5 text-teal-600 dark:text-teal-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a.75.75 0 000 1.5h.253a.25.25 0 01.244.304l-.459 2.066A1.75 1.75 0 0010.747 15H11a.75.75 0 000-1.5h-.253a.25.25 0 01-.244-.304l.459-2.066A1.75 1.75 0 009.253 9H9z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                  <div className="ml-3">
+                    <h3 className="text-sm font-medium text-teal-800 dark:text-teal-300">Photo Tips</h3>
+                    <div className="mt-1 text-sm text-teal-700 dark:text-teal-400">
+                      <p>For best results, please upload a high-definition (HD) image of your ingredients. Make sure the image is well-lit and ingredients are clearly visible.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <FileDropzone
+                onFileSelected={(file) => {
+                  setImage(file);
+                  setError(''); 
+                }}
+                onFileRemoved={() => setImage(null)}
+                selectedFile={image}
+                accept="image/jpeg,image/png,image/jpg"
+                maxSize={2 * 1024 * 1024} 
+                onError={setError}
+              />
+            </div>
             
             {error && apiAvailable !== false && (
               <ApiAlert error={error} onRetry={apiAvailable === null ? checkApiServer : undefined} showRetry={apiAvailable === null} />

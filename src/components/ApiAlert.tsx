@@ -70,7 +70,7 @@ export function ApiServerUnavailable() {
       <div className="mt-3 text-sm text-red-700 dark:text-red-300 border-t border-red-200 dark:border-red-800 pt-2">
         <p className="font-medium">Troubleshooting steps:</p>
         <ol className="list-decimal list-inside ml-2 mt-1 space-y-1">
-          <li>Check if the backend server is running</li>
+          <li>Check if the server is running</li>
           {/* <li>Ensure the server is listening on port 8000</li>
           <li>Verify there are no CORS issues blocking the requests</li>
           <li>Restart the backend server if necessary</li> */}

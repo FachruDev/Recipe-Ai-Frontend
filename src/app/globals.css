@@ -63,3 +63,31 @@ body {
     transform: translateY(0px) translateX(0px) rotate(0deg);
   }
 }
+
+/* Splash Screen Animations */
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes draw {
+  0% {
+    stroke-dasharray: 100;
+    stroke-dashoffset: 100;
+  }
+  100% {
+    stroke-dasharray: 100;
+    stroke-dashoffset: 0;
+  }
+}
+
+.animate-dash {
+  animation: dash 1.5s ease-in-out forwards;
+}
+
+.animate-draw {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  animation: draw 1s ease-in-out forwards 0.8s;
+}
